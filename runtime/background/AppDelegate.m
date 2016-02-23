@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <objc/runtime.h>
+#import "Person.h"
 @interface AppDelegate ()
 
 @end
@@ -18,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    void(^b2)() = ^{
+    void(^b2)() = ^(){
         
         
     };
@@ -31,6 +32,16 @@
     
     dispatch_async(dispatch_get_global_queue(0,0),b1);
 
+    int (^block)();
+    block = ^{
+        return 3;
+    };
+   // int a= block();
+    Person*person = [[Person alloc]init];
+    //person.runBlock 返回 一个 block 在后面加一个（）相当于调用这个block 在 block中返回一个对象 则又可以调用下一个 block
+  person = person.runBlock().studyBlock().runBlock();
+    
+    
     
     return YES;
 }

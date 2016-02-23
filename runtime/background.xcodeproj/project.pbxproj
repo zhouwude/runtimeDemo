@@ -19,6 +19,7 @@
 		625E0D6B1C45E26900DC287D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625E0D691C45E26900DC287D /* LaunchScreen.storyboard */; };
 		625E0D761C45E26900DC287D /* backgroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 625E0D751C45E26900DC287D /* backgroundTests.m */; };
 		625E0D811C45E26900DC287D /* backgroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 625E0D801C45E26900DC287D /* backgroundUITests.m */; };
+		62D7E1EB1C7B057D00820B15 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D7E1EA1C7B057D00820B15 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		625E0D7C1C45E26900DC287D /* backgroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = backgroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		625E0D801C45E26900DC287D /* backgroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = backgroundUITests.m; sourceTree = "<group>"; };
 		625E0D821C45E26900DC287D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62D7E1E91C7B057D00820B15 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		62D7E1EA1C7B057D00820B15 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				6202EBBC1C4793690033357C /* MyClass.m */,
 				621877711C4B70BA0092EB28 /* MySubClass.h */,
 				621877721C4B70BA0092EB28 /* MySubClass.m */,
+				62D7E1E91C7B057D00820B15 /* Person.h */,
+				62D7E1EA1C7B057D00820B15 /* Person.m */,
 			);
 			path = background;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			files = (
 				6202EBBD1C4793690033357C /* MyClass.m in Sources */,
 				620682671C57164C004E7DBD /* TestViewCon.m in Sources */,
+				62D7E1EB1C7B057D00820B15 /* Person.m in Sources */,
 				625E0D631C45E26900DC287D /* ViewController.m in Sources */,
 				625E0D601C45E26900DC287D /* AppDelegate.m in Sources */,
 				625E0D5D1C45E26900DC287D /* main.m in Sources */,
@@ -438,11 +444,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = background/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = STP.background;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -450,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = background/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
