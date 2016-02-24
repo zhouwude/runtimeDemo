@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <objc/runtime.h>
 #import "Person.h"
+#import <mach/message.h>
 @interface AppDelegate ()
 
 @end
@@ -20,7 +21,7 @@
     // Override point for customization after application launch.
     
     void(^b2)() = ^(){
-        
+    
         
     };
     
@@ -40,6 +41,14 @@
     Person*person = [[Person alloc]init];
     //person.runBlock 返回 一个 block 在后面加一个（）相当于调用这个block 在 block中返回一个对象 则又可以调用下一个 block
   person = person.runBlock().studyBlock().runBlock();
+    
+    
+    NSLog(@"-----%@",b1);// 在mrc中block保存在栈上 函数返回后Block将无效 /需要手动copy 但在arc中 会自动copy到堆上。
+    
+    NSLog(@"-----%@",b2);//未引用外不变量的情况下 保存在全局区 （arc mrc 一样）
+    //<__NSMallocBlock__: 0x7f9c30e07cd0>
+   // 2016-02-23 14:14:56.461 background[15347:725408] -----<__NSGlobalBlock__: 0x1068a2230>
+    //
     
     
     
