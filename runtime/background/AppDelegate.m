@@ -49,6 +49,18 @@
     //<__NSMallocBlock__: 0x7f9c30e07cd0>
    // 2016-02-23 14:14:56.461 background[15347:725408] -----<__NSGlobalBlock__: 0x1068a2230>
     //
+  NSString *nonMutable = @"zhouwude";
+    id string1 = [nonMutable copy];//指针拷贝 浅拷贝 相当于 retain
+    id string2 = [nonMutable mutableCopy];//深拷贝 值的 拷贝
+    NSMutableString *mutable = [[NSMutableString alloc] initWithString:@"zhouwude1"];
+    id string3 = [mutable copy];//
+    id string4 = [mutable mutableCopy];// 对不可变对象的 copy mutableCopy 都是深拷贝 值得拷贝
+     NSLog(@"-----%@",string1);
+     NSLog(@"-----%@",string2);
+     NSLog(@"-----%@",string3);
+     NSLog(@"-----%@",string4);
+    
+    
     
     
     

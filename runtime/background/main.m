@@ -29,7 +29,13 @@ void _IMPMethod (id self,SEL _cmd){
 }
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        
+//        NSString *text = @"(1,(2,3),(4,(5,6)7))";
+//        NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet];
+//        
+//        NSString *result = [NSString stringWithFormat:@"(%@)",[[text componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@""]];
+//        
+//        
+//        NSLog(@"%@",result);
         
     //CFRunLoopRef
         
@@ -41,6 +47,8 @@ int main(int argc, char * argv[]) {
         //method_setImplementation函数，注意该函数返回值是方法之前的实现。
         IMP zhouwude =  method_setImplementation(class_getInstanceMethod([myClass class], @selector(method1)),(IMP)_IMPMethod);
         //class_replaceMethod函数，该函数的行为可以分为两种：如果类中不存在name指定的方法，则类似于class_addMethod函数一样会添加方法；如果类中已存在name指定的方法，则类似于method_setImplementation一样替代原方法的实现。注意替换实现的时候 参数得保持一致 增加或减少 都会照成 崩溃。
+      
+        
         [myClass method1];
         // typedef 直接可以使用别名 否则 要是用 struct name 才能定义
        // Ivar
@@ -158,10 +166,10 @@ int main(int argc, char * argv[]) {
        // object_getIvar(<#id obj#>, <#Ivar ivar#>)
         //设置成员变量的值
         //object_setIvar(<#id obj#>, <#Ivar ivar#>, <#id value#>)
-        
-//        IMP imp = class_getMethodImplementation(cls, @selector(method1));
-//        imp();
-//        
+       MyClass *cls = [[MyClass alloc] init];
+        IMP imp11 = class_getMethodImplementation(object_getClass(cls), @selector(method1));
+        imp11;
+//
 //        NSLog(@"================IMP==========================================");
 //        
 //        // 协议
@@ -213,6 +221,7 @@ int main(int argc, char * argv[]) {
 //
         //  iOS默认不支持对数组的KVO,因为普通方式监听的对象的地址的变化，而数组地址不变，而是里面的值发生了改变
      //地址1
+        //NSObject
     myClass.string = @"zhouwude";
         
     NSString *str = myClass->zhouwude;
