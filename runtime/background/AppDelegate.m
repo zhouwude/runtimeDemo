@@ -20,6 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //
+    //第二种比第一个多一个Options，第二种方式是创建了一个内存映射文件，把内容放在虚拟内存中，只有读取操作的时候才会读到相对应页的物理内存页中。所以后者，对于大文件是很划算的，推荐使用第二种。对于可选的方式如下：
+    [NSData dataWithContentsOfFile:@""];
+    
+    //NSDataReadingMapped
+    [NSData dataWithContentsOfFile:@"" options:0 error:nil];
+    
+    
+    
     void(^b2)() = ^(){
     
         

@@ -224,7 +224,7 @@ int main(int argc, char * argv[]) {
         //NSObject
     myClass.string = @"zhouwude";
         
-    NSString *str = myClass->zhouwude;
+    NSString *str = myClass->zhouwude;//访问成员变量
      //地址二
      myClass.string = @"zhouwude111";
        
@@ -236,7 +236,7 @@ int main(int argc, char * argv[]) {
         NSLog(@"--------------------------%@-------",myObject);
         return UIApplicationMain(argc, argv, nil, [NSString stringWithUTF8String:class_getName([AppDelegate class]) ]);
         
-        
+    
         //return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
