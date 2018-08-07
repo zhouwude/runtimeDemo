@@ -157,7 +157,7 @@ int main(int argc, char * argv[]) {
         IMP imp = imp_implementationWithBlock(^(id obj, NSString *str) {
             NSLog(@"%@", str);
         });
-        
+        // 给myClass增加 testBlock的方法 然后imp实现 如果原来类中实现了 则 addMethod不起作用
         class_addMethod(myClass.class, @selector(testBlock:), imp, "v@:@");
         
         MyClass *runtime = [[MyClass alloc] init];
